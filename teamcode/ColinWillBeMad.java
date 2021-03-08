@@ -194,6 +194,10 @@ public class ColinWillBeMad extends LinearOpMode {
                 robot.hoppy.setPower(0);
 
             }
+            if(gamepad1.right_trigger > .3) {
+                robot.finger.setPosition(0);
+                robot.finger.setPosition(-.6);
+            }
 
         }
 

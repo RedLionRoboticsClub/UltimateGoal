@@ -16,6 +16,7 @@ public class BasicHardwareMap2021 {
     public DcMotor motorBR     = null;
     public CRServo fastBoi     = null;
     public CRServo hoppy       = null;
+    public Servo   finger      = null;
 
     //Define Servos
 
@@ -41,6 +42,8 @@ public class BasicHardwareMap2021 {
 
         hoppy   = hwMap.get(CRServo.class, "hoppy");
         fastBoi = hwMap.get(CRServo.class, "fastBoi");
+
+        finger  = hwMap.get(Servo.class, "finger");
 
         // Set all motors to zero power
 
