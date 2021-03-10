@@ -2,15 +2,15 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.Range;
 
 import static com.qualcomm.robotcore.hardware.DcMotorSimple.Direction.FORWARD;
 
-@TeleOp(name="ColinWillBeMad", group="Test")
+@TeleOp(name="CathrynWillBeVeryMad", group="Test")
 
-public class ColinWillBeMad extends LinearOpMode {
+public class CathrynWillBeVeryMad extends LinearOpMode {
 
     //Connect Hardware Maps
     BasicHardwareMap2021 robot = new BasicHardwareMap2021();
@@ -113,49 +113,49 @@ public class ColinWillBeMad extends LinearOpMode {
                 robot.motorFR.setPower(0);
 
             }
-            else if(gamepad1.dpad_up &&gamepad1.dpad_right){
+            if(gamepad1.dpad_up &&gamepad1.dpad_right){
 
-                robot.motorFL.setPower(-strafePower/1.5);
-                robot.motorBR.setPower(-strafePower/1.5);
+                robot.motorFL.setPower(-strafePower/1.8);
+                robot.motorBR.setPower(-strafePower/1.8);
                 robot.motorBL.setPower(0);
                 robot.motorFR.setPower(0);
 
-            }else if (gamepad1.dpad_down &&gamepad1.dpad_right){
+            }if (gamepad1.dpad_down &&gamepad1.dpad_right){
 
                 robot.motorFR.setPower(strafePower/1.5);
                 robot.motorBL.setPower(strafePower/1.5);
                 robot.motorFL.setPower(0);
                 robot.motorBR.setPower(0);
 
-            }else if (gamepad1.dpad_up &&gamepad1.dpad_left){
+            }if (gamepad1.dpad_up &&gamepad1.dpad_left){
 
                 robot.motorFR.setPower(-strafePower/1.5);
                 robot.motorBL.setPower(-strafePower/1.5);
                 robot.motorFL.setPower(0);
                 robot.motorBR.setPower(0);
 
-            }else if (gamepad1.dpad_left){
+            }if (gamepad1.dpad_left){
 
                 robot.motorFL.setPower(strafePower/1.8);
                 robot.motorBR.setPower(strafePower/1.8);
                 robot.motorBL.setPower(-strafePower/1.8);
                 robot.motorFR.setPower(-strafePower/1.8);
 
-            }else if (gamepad1.dpad_right){
+            }if (gamepad1.dpad_right){
 
                 robot.motorFL.setPower(-strafePower/1.8);
                 robot.motorBR.setPower(-strafePower/1.8);
                 robot.motorBL.setPower(strafePower/1.8);
                 robot.motorFR.setPower(strafePower/1.8);
 
-            }else if (gamepad1.dpad_up){
+            }if (gamepad1.dpad_up){
 
                 robot.motorFL.setPower(-motorPower/2.5);
                 robot.motorBR.setPower(-motorPower/2.5);
                 robot.motorBL.setPower(-motorPower/2.5);
                 robot.motorFR.setPower(-motorPower/2.5);
 
-            }else if (gamepad1.dpad_down){
+            }if (gamepad1.dpad_down){
 
                 robot.motorFL.setPower(motorPower/2.5);
                 robot.motorBR.setPower(motorPower/2.5);
@@ -163,45 +163,15 @@ public class ColinWillBeMad extends LinearOpMode {
                 robot.motorFR.setPower(motorPower/2.5);
 
             } else {
-
                 robot.motorFL.setPower(0);
                 robot.motorBL.setPower(0);
                 robot.motorBR.setPower(0);
                 robot.motorFR.setPower(0);
             }
 
-            if(gamepad1.x) {
-
-                robot.fastBoi.setPower(-.25);
-                sleep(150);
-
-                robot.fastBoi.setPower(-.5);
-                sleep(150);
-
-                robot.fastBoi.setPower(-1);
-
-            } else if(gamepad1.y) {
-
-                robot.fastBoi.setPower(0);
-
-            }
-            if(gamepad1.a) {
-
-                robot.hoppy.setPower(1);
-
-            } else if(gamepad1.b) {
-
-                robot.hoppy.setPower(0);
-
-            }
-            if(gamepad1.right_trigger > .3) {
-                robot.finger.setPosition(0);
-                robot.finger.setPosition(-.6);
-            }
 
         }
 
     }
 }
-
 
