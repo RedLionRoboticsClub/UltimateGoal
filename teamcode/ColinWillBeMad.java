@@ -28,6 +28,7 @@ public class ColinWillBeMad extends LinearOpMode {
         //Add Telemetry to confirm Robot Start. Recommended to name her here
         double motorPower = 1;
         double strafePower = 1;
+        robot.finger.setPosition(0);
 
 
         // Wait for the game to start (driver presses PLAY)
@@ -196,7 +197,7 @@ public class ColinWillBeMad extends LinearOpMode {
             }
             if(gamepad1.right_trigger > .3) {
                 robot.finger.setPosition(0);
-                robot.finger.setPosition(-.6);
+                robot.finger.setPosition(0);
             }
 
         }
