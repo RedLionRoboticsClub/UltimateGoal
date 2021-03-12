@@ -152,26 +152,26 @@ public class TensorObjectTest extends LinearOpMode {
     public void detectRing() {
         if (tfod != null) {
 
-            sleep(1000);
+           i = 9;
 
             // getUpdatedRecognitions() will return null if no new information is available since
             // the last time that call was made.
             List<Recognition> Recognitions = tfod.getRecognitions();
 
-                    if (Recognitions.contains(LABEL_SECOND_ELEMENT)) {
-                        i = 1;
-                        telemetry.addData("ring detected",i);
+            if (Recognitions.contains(LABEL_SECOND_ELEMENT)) {
+                i = 1;
+                telemetry.addData("ring detected",i);
 
-                    } else if (Recognitions.contains(LABEL_SECOND_ELEMENT)) {
-                        i = 4;
-                        telemetry.addData("ring detected:" , i);
+            } else if (Recognitions.contains(LABEL_FIRST_ELEMENT)) {
+                i = 4;
+                telemetry.addData("ring detected:" , i);
 
-                    } else if (Recognitions == null){
-                        telemetry.addData("ring detected:", i);
-                    }
-
-                telemetry.update();
+            } else if (Recognitions == null){
+                telemetry.addData("ring detected:", i);
             }
+
+            telemetry.update();
+        }
     }
 
     public void noring () {
@@ -441,3 +441,7 @@ public class TensorObjectTest extends LinearOpMode {
 
     }
 }
+
+
+
+

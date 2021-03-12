@@ -3,10 +3,11 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 
-@Autonomous(name="AutoStoneRed", group="Test")
+@Autonomous(name="AutoBasic", group="Test")
 
 
 public class BasicAuto extends LinearOpMode {
@@ -24,6 +25,27 @@ public class BasicAuto extends LinearOpMode {
 
         waitForStart();
         sleep(20);
+        strafeLeft(300, 0.5, 2);
+        sleep(200);
+        moveForward(600, 0.7, 3);
+        ShootOnion(1000);
+        sleep(200);
+        strafeRight(50,0.5,2);
+        ShootOnion(1000);
+        strafeRight(50,0.5,2);
+        ShootOnion(1000);
+        sleep(1000);
+        strafeRight(50,0.5,2);
+        OnionEat(1000);
+        moveBackward(200,0.5,2);
+        OnionStopEating(1000);
+        sleep(200);
+        moveForward(100,0.6,2);
+        strafeRight(75,0.5,2);
+        TripleOnion(1000);
+
+
+
 
     }
 
@@ -263,9 +285,50 @@ public class BasicAuto extends LinearOpMode {
         robot.motorFL.setPower(0);
     }
 
+    public void ShootOnion(int time) throws InterruptedException{
+        robot.fastBoi.setPower(1);
+        sleep(time);
+        robot.finger.setDirection(Servo.Direction.REVERSE);
+        robot.finger.setPosition(0.5);
+        sleep(800);
+        robot.finger.setDirection(Servo.Direction.FORWARD);
+        robot.finger.setPosition(0.9);
+        sleep(time);
+        robot.fastBoi.setPower(0);
 
 
+    }
 
+    public void TripleOnion(int time) throws InterruptedException{
+        robot.fastBoi.setPower(1);
+        sleep(time);
+        robot.finger.setDirection(Servo.Direction.REVERSE);
+        robot.finger.setPosition(0.5);
+        sleep(800);
+        robot.finger.setDirection(Servo.Direction.FORWARD);
+        robot.finger.setPosition(0.9);
+        sleep(1000);
+        robot.finger.setDirection(Servo.Direction.REVERSE);
+        robot.finger.setPosition(0.5);
+        sleep(800);
+        robot.finger.setDirection(Servo.Direction.FORWARD);
+        robot.finger.setPosition(0.9);
+        sleep(1000);
+        robot.finger.setDirection(Servo.Direction.REVERSE);
+        robot.finger.setPosition(0.5);
+        sleep(800);
+        robot.finger.setDirection(Servo.Direction.FORWARD);
+        robot.finger.setPosition(0.9);
+        sleep(time);
+        robot.fastBoi.setPower(0);
+    }
+    public void OnionEat(int time) throws InterruptedException{
+        robot.hoppy.setPower(1);
+        sleep(time);
+    }
 
+    public void OnionStopEating(int time) throws InterruptedException{
+        robot.hoppy.setPower(0);
+    }
 }
 
