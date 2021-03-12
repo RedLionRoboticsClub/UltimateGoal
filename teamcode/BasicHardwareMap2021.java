@@ -1,4 +1,3 @@
-
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.hardware.CRServo;
@@ -65,7 +64,7 @@ public class BasicHardwareMap2021 {
 
         motorFL.setDirection(DcMotor.Direction.REVERSE);
         motorBL.setDirection(DcMotor.Direction.REVERSE);
-        fastBoi.setDirection(DcMotorSimple.Direction.REVERSE);
+        fastBoi.setDirection(DcMotorSimple.Direction.FORWARD);
 
         // Define and initialize ALL installed servos
 

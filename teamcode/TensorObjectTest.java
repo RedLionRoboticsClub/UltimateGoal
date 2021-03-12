@@ -96,18 +96,15 @@ public class TensorObjectTest extends LinearOpMode {
         }
 
         /** Wait for the game to begin */
-        detectRing();
-
-        sleep(5000);
-
-        telemetry.addData("oo wee oo he looks just like buddy holly >>>>", i);
+        telemetry.addData(">", "Press Play to start op mode");
         telemetry.update();
-
         waitForStart();
 
         if (opModeIsActive()) {
 
-            if(i == 3) {
+            detectRing();
+
+            if(i == 0) {
                 noring();
             } else if (i == 1){
                 onering();
@@ -153,34 +150,29 @@ public class TensorObjectTest extends LinearOpMode {
     }
 
     public void detectRing() {
-
-        i=5;
+        if (tfod != null) {
 
             sleep(1000);
+
             // getUpdatedRecognitions() will return null if no new information is available since
             // the last time that call was made.
-            List<Recognition> Recognitions = tfod.getUpdatedRecognitions();
+            List<Recognition> Recognitions = tfod.getRecognitions();
 
-     for(Recognition recognition: Recognitions) {
+                    if (Recognitions.contains(LABEL_SECOND_ELEMENT)) {
+                        i = 1;
+                        telemetry.addData("ring detected",i);
 
-         i=2;
+                    } else if (Recognitions.contains(LABEL_SECOND_ELEMENT)) {
+                        i = 4;
+                        telemetry.addData("ring detected:" , i);
 
-            if(Recognitions.contains(LABEL_SECOND_ELEMENT))
-                i = 1;
-                telemetry.addData("ring detected", i);
+                    } else if (Recognitions == null){
+                        telemetry.addData("ring detected:", i);
+                    }
 
-            }  if (Recognitions.contains(LABEL_FIRST_ELEMENT)) {
-                i = 4;
-                telemetry.addData("ring detected:", i);
-
-            } else if (Recognitions == null) {
-                i = 3;
-                telemetry.addData("ring detected:", i);
+                telemetry.update();
             }
-
-            telemetry.update();
-        }
-
+    }
 
     public void noring () {
         // A or closest square
@@ -449,7 +441,3 @@ public class TensorObjectTest extends LinearOpMode {
 
     }
 }
-
-
-
-

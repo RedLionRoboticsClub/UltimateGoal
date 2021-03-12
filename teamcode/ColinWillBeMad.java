@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.Range;
 
@@ -28,7 +29,6 @@ public class ColinWillBeMad extends LinearOpMode {
         //Add Telemetry to confirm Robot Start. Recommended to name her here
         double motorPower = 1;
         double strafePower = 1;
-        robot.finger.setPosition(0);
 
 
         // Wait for the game to start (driver presses PLAY)
@@ -51,6 +51,9 @@ public class ColinWillBeMad extends LinearOpMode {
 
 
             boolean changed = false;
+            boolean changed0 = false;
+            boolean changed1 = false;
+            boolean changed2 = false;
 
             if(gamepad1.b && !changed){
                 if(motorPower == 1){
@@ -58,7 +61,7 @@ public class ColinWillBeMad extends LinearOpMode {
                         motorPower = .55;
                         strafePower = .65;
                         changed = true;
-                        telemetry.addData("Current Speed:", " slow");
+                        telemetry.addData("Current Speed:", " Slow");
                         telemetry.addData("Motor Power", motorPower);
                         telemetry.update();
                     }
@@ -68,7 +71,7 @@ public class ColinWillBeMad extends LinearOpMode {
                         motorPower = 1;
                         strafePower = 1;
                         changed = true;
-                        telemetry.addData("Current Speed:", " fast");
+                        telemetry.addData("Current Speed:", " Fast");
                         telemetry.addData("Motor Power", motorPower);
                         telemetry.update();
                     }
@@ -171,38 +174,67 @@ public class ColinWillBeMad extends LinearOpMode {
                 robot.motorFR.setPower(0);
             }
 
-            if(gamepad1.x) {
+            if(gamepad1.x && !changed1){
+                if(robot.fastBoi.getPower() == 1){
+                    while (gamepad1.x) {
 
-                robot.fastBoi.setPower(-.25);
-                sleep(150);
+                        robot.fastBoi.setPower(0);
+                        changed1 = true;
 
-                robot.fastBoi.setPower(-.5);
-                sleep(150);
+                    }
+                }
+                else if (robot.fastBoi.getPower() == 0){
+                    while (gamepad1.x) {
 
-                robot.fastBoi.setPower(-1);
+                        robot.fastBoi.setPower(1);
+                        changed1 = true;
 
-            } else if(gamepad1.y) {
+                    }
+                }
+            }
+            else {
+                changed1 = true;
+            }
 
-                robot.fastBoi.setPower(0);
+            if(gamepad1.y && !changed2){
+                if(robot.hoppy.getPower() == 1){
+                    while (gamepad1.y) {
+
+                        robot.hoppy.setPower(0);
+                        changed2 = true;
+
+                    }
+                }
+                else if (robot.hoppy.getPower() == 0){
+                    while (gamepad1.y) {
+
+                        robot.hoppy.setPower(1);
+                        changed2 = true;
+
+                    }
+                }
+            }
+            else {
+                changed2 = true;
+            }
+
+            if(gamepad1.right_trigger > .3 && !changed0){
+
+                while (gamepad1.right_trigger > .3 ) {
+                    robot.finger.setDirection(Servo.Direction.REVERSE);
+                    robot.finger.setPosition(.5);
+                }
+                    robot.finger.setDirection(Servo.Direction.FORWARD);
+                    robot.finger.setPosition(.9);
+
+
 
             }
-            if(gamepad1.a) {
 
-                robot.hoppy.setPower(1);
 
-            } else if(gamepad1.b) {
-
-                robot.hoppy.setPower(0);
-
-            }
-            if(gamepad1.right_trigger > .3) {
-                robot.finger.setPosition(0);
-                robot.finger.setPosition(0);
-            }
 
         }
 
     }
 }
-
 
