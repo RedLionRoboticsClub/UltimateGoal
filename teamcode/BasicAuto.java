@@ -25,24 +25,17 @@ public class BasicAuto extends LinearOpMode {
 
         waitForStart();
         sleep(20);
-        strafeLeft(300, 0.5, 2);
+        strafeLeft(25, 0.5, 2);
         sleep(200);
-        moveForward(600, 0.7, 3);
+        moveForward(50, 0.7, 3);
         ShootOnion(1000);
-        sleep(200);
-        strafeRight(50,0.5,2);
+        sleep(20);
+        strafeRight(2,0.2,2);
         ShootOnion(1000);
-        strafeRight(50,0.5,2);
+        strafeRight(2,0.2,2);
         ShootOnion(1000);
-        sleep(1000);
-        strafeRight(50,0.5,2);
-        OnionEat(1000);
-        moveBackward(200,0.5,2);
-        OnionStopEating(1000);
-        sleep(200);
-        moveForward(100,0.6,2);
-        strafeRight(75,0.5,2);
-        TripleOnion(1000);
+        moveForward(5,.5,2);
+
 
 
 
