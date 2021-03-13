@@ -16,6 +16,7 @@ public class BasicAuto extends LinearOpMode {
     BasicHardwareMap2021 robot = new BasicHardwareMap2021();
     private ElapsedTime runtime = new ElapsedTime();
 
+
     double func = 0;
 
     @Override
@@ -42,7 +43,7 @@ public class BasicAuto extends LinearOpMode {
 
     }
 
-    public void moveForward(int tick, double power, int timeout) throws InterruptedException {
+    public void moveBackward(int tick, double power, int timeout) throws InterruptedException {
 
         //Set encoder values to 0
         robot.motorFR.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
@@ -80,7 +81,7 @@ public class BasicAuto extends LinearOpMode {
 
     }
 
-    public void moveBackward(int tick, double power, int timeout) throws InterruptedException {
+    public void moveForward(int tick, double power, int timeout) throws InterruptedException {
 
         //Set encoder values to 0
         robot.motorFR.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
