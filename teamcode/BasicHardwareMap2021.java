@@ -54,6 +54,7 @@ public class BasicHardwareMap2021 {
         fastBoi.setPower(0);
         hoppy.setPower(0);
 
+
         // Set all motors to run without encoders.
         // May want to use RUN_USING_ENCODERS if encoders are installed.
 
@@ -62,11 +63,13 @@ public class BasicHardwareMap2021 {
         motorBL.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         motorBR.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
-        motorFL.setDirection(DcMotor.Direction.REVERSE);
-        motorBL.setDirection(DcMotor.Direction.REVERSE);
         fastBoi.setDirection(DcMotorSimple.Direction.FORWARD);
+        motorFR.setDirection(DcMotorSimple.Direction.REVERSE);
+        motorBR.setDirection(DcMotorSimple.Direction.REVERSE);
 
         // Define and initialize ALL installed servos
+
+        finger.scaleRange(0,1);
 
     }
 }

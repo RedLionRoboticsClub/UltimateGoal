@@ -25,6 +25,7 @@ public class ColinWillBeMad extends LinearOpMode {
         //Initiate Hardware Map
         robot.init(hardwareMap);
 
+        robot.finger.setPosition(.47);
 
         //Add Telemetry to confirm Robot Start. Recommended to name her here
         double motorPower = 1;
@@ -111,60 +112,60 @@ public class ColinWillBeMad extends LinearOpMode {
 
             if (gamepad1.dpad_down &&gamepad1.dpad_left){
 
-                robot.motorFL.setPower(strafePower/1.5);
-                robot.motorBR.setPower(strafePower/1.5);
+                robot.motorFL.setPower(strafePower);
+                robot.motorBR.setPower(strafePower);
                 robot.motorBL.setPower(0);
                 robot.motorFR.setPower(0);
 
             }
             else if(gamepad1.dpad_up &&gamepad1.dpad_right){
 
-                robot.motorFL.setPower(-strafePower/1.5);
-                robot.motorBR.setPower(-strafePower/1.5);
+                robot.motorFL.setPower(-strafePower);
+                robot.motorBR.setPower(-strafePower);
                 robot.motorBL.setPower(0);
                 robot.motorFR.setPower(0);
 
             }else if (gamepad1.dpad_down &&gamepad1.dpad_right){
 
-                robot.motorFR.setPower(strafePower/1.5);
-                robot.motorBL.setPower(strafePower/1.5);
+                robot.motorFR.setPower(strafePower);
+                robot.motorBL.setPower(strafePower);
                 robot.motorFL.setPower(0);
                 robot.motorBR.setPower(0);
 
             }else if (gamepad1.dpad_up &&gamepad1.dpad_left){
 
-                robot.motorFR.setPower(-strafePower/1.5);
-                robot.motorBL.setPower(-strafePower/1.5);
+                robot.motorFR.setPower(-strafePower);
+                robot.motorBL.setPower(-strafePower);
                 robot.motorFL.setPower(0);
                 robot.motorBR.setPower(0);
 
-            }else if (gamepad1.dpad_left){
-
-                robot.motorFL.setPower(strafePower/1.8);
-                robot.motorBR.setPower(strafePower/1.8);
-                robot.motorBL.setPower(-strafePower/1.8);
-                robot.motorFR.setPower(-strafePower/1.8);
-
             }else if (gamepad1.dpad_right){
 
-                robot.motorFL.setPower(-strafePower/1.8);
-                robot.motorBR.setPower(-strafePower/1.8);
-                robot.motorBL.setPower(strafePower/1.8);
-                robot.motorFR.setPower(strafePower/1.8);
+                robot.motorFL.setPower(-strafePower);
+                robot.motorBR.setPower(-strafePower);
+                robot.motorBL.setPower(strafePower);
+                robot.motorFR.setPower(strafePower);
+
+            }else if (gamepad1.dpad_left){
+
+                robot.motorFL.setPower(strafePower);
+                robot.motorBR.setPower(strafePower);
+                robot.motorBL.setPower(-strafePower);
+                robot.motorFR.setPower(-strafePower);
 
             }else if (gamepad1.dpad_up){
 
-                robot.motorFL.setPower(-motorPower/2.5);
-                robot.motorBR.setPower(-motorPower/2.5);
-                robot.motorBL.setPower(-motorPower/2.5);
-                robot.motorFR.setPower(-motorPower/2.5);
+                robot.motorFL.setPower(-motorPower);
+                robot.motorBR.setPower(-motorPower);
+                robot.motorBL.setPower(-motorPower);
+                robot.motorFR.setPower(-motorPower);
 
             }else if (gamepad1.dpad_down){
 
-                robot.motorFL.setPower(motorPower/2.5);
-                robot.motorBR.setPower(motorPower/2.5);
-                robot.motorBL.setPower(motorPower/2.5);
-                robot.motorFR.setPower(motorPower/2.5);
+                robot.motorFL.setPower(motorPower);
+                robot.motorBR.setPower(motorPower);
+                robot.motorBL.setPower(motorPower);
+                robot.motorFR.setPower(motorPower);
 
             } else {
 
@@ -221,11 +222,12 @@ public class ColinWillBeMad extends LinearOpMode {
             if(gamepad1.right_trigger > .3 && !changed0){
 
                 while (gamepad1.right_trigger > .3 ) {
-                    robot.finger.setDirection(Servo.Direction.REVERSE);
-                    robot.finger.setPosition(.5);
-                }
                     robot.finger.setDirection(Servo.Direction.FORWARD);
-                    robot.finger.setPosition(.9);
+                    robot.finger.setPosition(.25);
+                }
+                robot.finger.setDirection(Servo.Direction.FORWARD);
+                robot.finger.setPosition(.49);
+
 
 
 
@@ -237,4 +239,8 @@ public class ColinWillBeMad extends LinearOpMode {
 
     }
 }
+
+
+
+
 

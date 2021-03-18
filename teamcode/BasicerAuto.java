@@ -7,10 +7,10 @@ import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 
-@Autonomous(name="AutoBasic", group="Test")
+@Autonomous(name="AutoBasicer", group="Test")
 
 
-public class BasicAuto extends LinearOpMode {
+public class BasicerAuto extends LinearOpMode {
 
     //variables
     BasicHardwareMap2021 robot = new BasicHardwareMap2021();
@@ -25,19 +25,11 @@ public class BasicAuto extends LinearOpMode {
         robot.init(hardwareMap);
 
         waitForStart();
-        sleep(20);
-        moveForward(50,0.5,2);
-        strafeLeft(700, 0.5, 2);
-        sleep(20);
-        moveForward(1000, 0.7, 3);
-        ShootOnion(1000);
-        sleep(20);
-        strafeRight(100,0.2,2);
-        ShootOnion(1000);
-        strafeRight(100,0.2,2);
-        ShootOnion(1000);
-        moveForward(250,.5,2);
-
+       sleep(20);
+       moveForward(100, .75, 3);
+       TripleOnion(1000);
+       strafeLeft(400, .75,3);
+       moveForward(2650, 1, 3);
 
 
 
@@ -196,7 +188,7 @@ public class BasicAuto extends LinearOpMode {
 
     }
 
-    public void strafeRight(int tick, double power, int timeout) throws InterruptedException {
+    public void strafeLeft(int tick, double power, int timeout) throws InterruptedException {
 
         //Set encoder values to 0
         robot.motorFR.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
@@ -234,7 +226,7 @@ public class BasicAuto extends LinearOpMode {
 
     }
 
-    public void strafeLeft(int tick, double power, int timeout) throws InterruptedException {
+    public void strafeRight(int tick, double power, int timeout) throws InterruptedException {
 
         //Set encoder values to 0
         robot.motorFR.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
@@ -298,23 +290,23 @@ public class BasicAuto extends LinearOpMode {
         robot.fastBoi.setPower(1);
         sleep(time);
         robot.finger.setDirection(Servo.Direction.REVERSE);
-        robot.finger.setPosition(0.5);
-        sleep(800);
+        robot.finger.setPosition(.49);
+        sleep(1000);
         robot.finger.setDirection(Servo.Direction.FORWARD);
-        robot.finger.setPosition(0.9);
+        robot.finger.setPosition(0.25);
         sleep(1000);
         robot.finger.setDirection(Servo.Direction.REVERSE);
-        robot.finger.setPosition(0.5);
-        sleep(800);
+        robot.finger.setPosition(.49);
+        sleep(1000);
         robot.finger.setDirection(Servo.Direction.FORWARD);
-        robot.finger.setPosition(0.9);
+        robot.finger.setPosition(0.25);
         sleep(1000);
         robot.finger.setDirection(Servo.Direction.REVERSE);
-        robot.finger.setPosition(0.5);
-        sleep(800);
+        robot.finger.setPosition(.49);
+        sleep(1500);
         robot.finger.setDirection(Servo.Direction.FORWARD);
-        robot.finger.setPosition(0.9);
-        sleep(time);
+        robot.finger.setPosition(0.25);
+        sleep(1500);
         robot.fastBoi.setPower(0);
     }
     public void OnionEat(int time) throws InterruptedException{
@@ -326,4 +318,5 @@ public class BasicAuto extends LinearOpMode {
         robot.hoppy.setPower(0);
     }
 }
+
 
