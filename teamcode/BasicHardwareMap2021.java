@@ -17,6 +17,8 @@ public class BasicHardwareMap2021 {
     public CRServo fastBoi     = null;
     public CRServo hoppy       = null;
     public Servo   finger      = null;
+    public CRServo lifty       = null;
+    public Servo grabby      = null;
 
     //Define Servos
 
@@ -42,6 +44,8 @@ public class BasicHardwareMap2021 {
 
         hoppy   = hwMap.get(CRServo.class, "hoppy");
         fastBoi = hwMap.get(CRServo.class, "fastBoi");
+        lifty   = hwMap.get(CRServo.class, "lifty");
+        grabby  = hwMap.get(Servo.class, "grabby");
 
         finger  = hwMap.get(Servo.class, "finger");
 
@@ -53,6 +57,8 @@ public class BasicHardwareMap2021 {
         motorBR.setPower(0);
         fastBoi.setPower(0);
         hoppy.setPower(0);
+        lifty.setPower(0);
+
 
 
         // Set all motors to run without encoders.
@@ -70,6 +76,8 @@ public class BasicHardwareMap2021 {
         // Define and initialize ALL installed servos
 
         finger.scaleRange(0,1);
+        grabby.scaleRange(0,1);
+
 
     }
 }

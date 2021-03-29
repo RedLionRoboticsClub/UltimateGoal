@@ -14,8 +14,7 @@ public class AutoHardwareMap {
     public DcMotor motorBL     = null;
     public DcMotor motorBR     = null;
     public CRServo fastBoi     = null;
-    public CRServo hoppy       = null;
-    public Servo finger      = null;
+    public CRServo    hoppy      = null;
 
     //Define Servos
 
@@ -42,7 +41,7 @@ public class AutoHardwareMap {
         hoppy   = hwMap.get(CRServo.class, "hoppy");
         fastBoi = hwMap.get(CRServo.class, "fastBoi");
 
-        finger  = hwMap.get(Servo.class, "finger");
+
 
         // Set all motors to zero power
 
@@ -51,7 +50,6 @@ public class AutoHardwareMap {
         motorBL.setPower(0);
         motorBR.setPower(0);
         fastBoi.setPower(0);
-        hoppy.setPower(0);
 
         // Set all motors to run without encoders.
         // May want to use RUN_USING_ENCODERS if encoders are installed.

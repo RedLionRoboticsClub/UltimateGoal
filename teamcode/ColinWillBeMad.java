@@ -36,6 +36,7 @@ public class ColinWillBeMad extends LinearOpMode {
 
         waitForStart();
 
+        robot.grabby.setPosition(.5);
 
         // run until the end of the match (driver presses STOP)
         while (opModeIsActive()){
@@ -55,6 +56,7 @@ public class ColinWillBeMad extends LinearOpMode {
             boolean changed0 = false;
             boolean changed1 = false;
             boolean changed2 = false;
+            boolean changed3 = false;
 
             if(gamepad1.b && !changed){
                 if(motorPower == 1){
@@ -176,7 +178,7 @@ public class ColinWillBeMad extends LinearOpMode {
             }
 
             if(gamepad1.x && !changed1){
-                if(robot.fastBoi.getPower() == 1){
+                if(robot.fastBoi.getPower() > 0){
                     while (gamepad1.x) {
 
                         robot.fastBoi.setPower(0);
@@ -187,7 +189,7 @@ public class ColinWillBeMad extends LinearOpMode {
                 else if (robot.fastBoi.getPower() == 0){
                     while (gamepad1.x) {
 
-                        robot.fastBoi.setPower(1);
+                        robot.fastBoi.setPower(.85);
                         changed1 = true;
 
                     }
@@ -227,14 +229,49 @@ public class ColinWillBeMad extends LinearOpMode {
                 }
                 robot.finger.setDirection(Servo.Direction.FORWARD);
                 robot.finger.setPosition(.49);
-
-
-
-
             }
 
+            if(gamepad1.left_trigger > .3 && !changed3){
+                if(robot.grabby.getPosition() == .50){
+                    while (gamepad1.left_trigger > .3) {
+
+                        robot.grabby.setDirection(Servo.Direction.REVERSE);
+                        robot.grabby.setPosition(.2);
+                        changed3 = true;
+
+                    }
+                }
+                else if (robot.grabby.getPosition() != .5) {
+                    while (gamepad1.left_trigger > .3) {
+
+                        robot.grabby.setDirection(Servo.Direction.FORWARD);
+                        robot.grabby.setPosition(.5);
+                        changed3 = true;
+
+                    }
+                }
+            }
+            else {
+                changed3 = true;
+            }
+
+            if ( runtime.seconds() >= 90) {
+                if (gamepad1.right_bumper ) {
+                    while (gamepad1.right_bumper) {
+                        robot.lifty.setPower(.5);
+                    }
+
+                } if (gamepad1.left_bumper){
+                    while (gamepad1.left_bumper) {
+                        robot.lifty.setPower(-.5);
+                    }
+                }
+                else {
+                robot.lifty.setPower(0);
+    }
 
 
+}
         }
 
     }
