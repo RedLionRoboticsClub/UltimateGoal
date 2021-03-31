@@ -93,7 +93,7 @@ public class angerynoisies extends LinearOpMode {
             // (typically 1.78 or 16/9).
 
             // Uncomment the following line if you want to adjust the magnification and/or the aspect ratio of the input images.
-            //tfod.setZoom(2.5, 1.78);
+            tfod.setZoom(2.5, 1.78);
 
         }
 
@@ -103,14 +103,20 @@ public class angerynoisies extends LinearOpMode {
         waitForStart();
 
         if (opModeIsActive()) {
-            chomp();
+           /*chomp();
             lift();
             moveForward(500, .5, 10000);
-            dothingsplz();
-            strafeLeft(500, .5, 10000);
-            moveForward(1500, .5, 10000);
-            strafeRight(750, .5, 10000);
-            Dreinion(500);
+            */dothingsplz();
+            /*strafeLeft(1275, .5, 10000);
+            moveForward(1250, .5, 10000);
+            ShootOnion(.79);
+            strafeRight(350, .5, 10000);
+            ShootOnion(.77);
+            strafeRight(350, .5, 10000);
+            ShootOnion(.77);
+            strafeRight(700, .5, 10000);
+
+             */
 
             if(i == 1) {
                 nonyong();
@@ -160,31 +166,41 @@ public class angerynoisies extends LinearOpMode {
 
     public void nonyong() throws InterruptedException{
 
-        strafeRight(1000,.5, 10000);
-        moveForward(1500, .5, 10000);
+        strafeRight(1000,1, 10000);
+        moveForward(1500, 1, 10000);
         dropit();
-        moveForward(500, .5, 10000);
-        strafeLeft(1000, .5, 100000);
-        moveBackward(750, .5, 10000);
+        moveForward(500, 1, 10000);
+        strafeLeft(1000, 1, 100000);
+        moveBackward(750, 1, 10000);
 
     }
 
     public void einyong() throws InterruptedException{
 
-        moveForward(2500,.5,10000);
+        moveForward(2500,1,10000);
         dropit();
-        moveForward(700, .5, 10000);
-        strafeLeft(1000, .5, 10000);
-        moveBackward(2000, .5, 10000);
+        moveForward(700, 1, 10000);
+        strafeLeft(1000, 1, 10000);
+        moveBackward(2000, 1, 10000);
     }
 
     public void vieryong() throws InterruptedException{
 
-        strafeRight(1000, .5, 10000);
-        moveForward(2250, .5, 10000);
-        turnLeft(2250,.5,10000);
+        strafeRight(1000, 1, 10000);
+        moveForward(2300, 1, 10000);
+        turnLeft(2250,1,10000);
         dropit();
-        moveForward(1250, .5, 10000);
+        moveForward(1250, 1, 10000);
+        turnLeft(2500, .7, 100000);
+        strafeRight(500, 1, 100000);
+        strafeRight(500, .3, 100000);
+        strafeLeft(650, .5, 100000);
+        moveBackward(2000, .5, 100000);
+        chomp();
+        moveForward(3000, .5, 1000000);
+
+
+
 
     }
 
@@ -464,15 +480,15 @@ public class angerynoisies extends LinearOpMode {
         robot.motorFL.setPower(0);
     }
 
-    public void ShootOnion(int time) throws InterruptedException{
-        robot.fastBoi.setPower(.85);
-        sleep(time);
-        robot.finger.setDirection(Servo.Direction.REVERSE);
-        robot.finger.setPosition(0.5);
-        sleep(800);
+    public void ShootOnion(double power) throws InterruptedException{
+        robot.fastBoi.setPower(power);
+        sleep(1000);
         robot.finger.setDirection(Servo.Direction.FORWARD);
+        robot.finger.setPosition(0.5);
+        sleep(300);
+        robot.finger.setDirection(Servo.Direction.REVERSE);
         robot.finger.setPosition(0.9);
-        sleep(time);
+        sleep(500);
         robot.fastBoi.setPower(0);
 
 
@@ -532,7 +548,7 @@ public class angerynoisies extends LinearOpMode {
 
     public void dropit() throws InterruptedException{
 
-        robot.grabby.setDirection(Servo.Direction.FORWARD);
+        robot.grabby.setDirection(Servo.Direction.REVERSE);
         robot.grabby.setPosition(.7);
     }
 }
