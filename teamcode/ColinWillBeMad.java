@@ -1,3 +1,4 @@
+//import all the stuff again
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
@@ -9,8 +10,10 @@ import com.qualcomm.robotcore.util.Range;
 
 import static com.qualcomm.robotcore.hardware.DcMotorSimple.Direction.FORWARD;
 
+//define and name your teleop (per tradition its the presidents name then will be mad because the prez hates funny things apparently) 
 @TeleOp(name="ColinWillBeMad", group="Test")
 
+//where the class starts 
 public class ColinWillBeMad extends LinearOpMode {
 
     //Connect Hardware Maps
@@ -22,7 +25,7 @@ public class ColinWillBeMad extends LinearOpMode {
     @Override
     public void runOpMode() {
 
-        //Initiate Hardware Map
+        //Initiate Hardware Map / do anything you need to do for set up
         robot.init(hardwareMap);
 
         robot.finger.setPosition(.47);
@@ -44,8 +47,15 @@ public class ColinWillBeMad extends LinearOpMode {
             //---------------------
             //------GAMEPAD 1------
             //---------------------
+            
+            //everything below here is stuff that can be left the same, deleted, or very slightly modified depending on what you want to do. Honestly I dont know
+            //what the game is or what you'll need, so for now i'll just leave this as it is. Over the weekend I'll get some more stuff together and annotate this
+            //further, I just dont have the time right now
 
             //-------WHEELS--------
+            
+            //i believe this is for the tank control robot, which is 1 stick per wheel. Personally I think thats best, but driver gets to choose
+            
             double yLValue = gamepad1.left_stick_y;
             double yRValue = gamepad1.right_stick_y;
             double xLValue = gamepad1.left_stick_x;
@@ -58,6 +68,7 @@ public class ColinWillBeMad extends LinearOpMode {
             boolean changed2 = false;
             boolean changed3 = false;
 
+            //if whatever button is pressed, then do thing/move is the entire basis of all of this section
             if(gamepad1.b && !changed){
                 if(motorPower == 1){
                     while (gamepad1.b) {
@@ -83,7 +94,8 @@ public class ColinWillBeMad extends LinearOpMode {
             else {
                 changed = true;
             }
-
+            
+//Dont worry about the math right now I think, thats a later issue
             double radL = Math.sqrt(Math.pow(xLValue,2)+Math.pow(yLValue,2));
 
             double radR = Math.sqrt(Math.pow(xRValue,2)+Math.pow(yRValue,2));
@@ -176,7 +188,9 @@ public class ColinWillBeMad extends LinearOpMode {
                 robot.motorBR.setPower(0);
                 robot.motorFR.setPower(0);
             }
-
+            
+//Moving from the movement section to the extras, fastboi was still a motor but it was for shooting rings, not moving
+            
             if(gamepad1.x && !changed1){
                 if(robot.fastBoi.getPower() > 0){
                     while (gamepad1.x) {
@@ -277,7 +291,8 @@ public class ColinWillBeMad extends LinearOpMode {
     }
 }
 
-
+//this is stuff I'll have to do more research on myself and explain in person probably, as I really have never done teleop because I was the auto coder. I dont
+//believe its super necessary to understand how all of this works, you just need to know where to replace values and stuff but I'll assist on that
 
 
 
